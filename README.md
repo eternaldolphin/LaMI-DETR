@@ -65,6 +65,12 @@ LaMI-DETR/dataset
 |   ├── lvis_v1_train_norare_cat_info.json
 |   ├── lvis_v1_seen_classes.json
 |   └── lvis_v1_all_classes.json
+├── VisualGenome
+|   ├── lvis_v1_all_classes.json
+|   ├── lvis_v1_seen_classes.json
+|   ├── vg_filter_rare_cat_info.json
+|   ├── vg_filter_rare.json
+|   └── images/
 ├── cluster
 |   ├── lvis_cluster_128.npy
 |   └── vg_cluster_256.npy

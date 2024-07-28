@@ -288,9 +288,7 @@ def register_all_anp(root):
 
 _PREDEFINED_SPLITS_VG_PSEUDO = {
     "vg_pseudo": {
-        "vg_pseudo_train": ("VisualGenome/images", "VisualGenome/metas/vg_instances_pseudo_coco_lvis.json"),
-        "vg_ori_train": ("VisualGenome/images", "VisualGenome/metas/vg_instances_train.json"),
-        "vg_filter_rare": ("VisualGenome/images", "VisualGenome/metas/vg_filter_rare.json",)
+        "vg_filter_rare": ("VisualGenome/images", "VisualGenome/vg_filter_rare.json",)
     }
 }
 
