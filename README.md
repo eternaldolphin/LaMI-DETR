@@ -49,7 +49,10 @@ pip install -e .
 
 ### Datasets
 Download the [MS-COCO](https://cocodataset.org/#download) dataset to `dataset/coco`.
+
 Download and unzip the [LVIS annotation](https://drive.google.com/file/d/1k-o3Dxsj_qAvzR7bszrMoaY0DOwRZfEX/view?usp=sharing) to `dataset/lvis`.
+
+Download and unzip the [VG annotation](https://drive.google.com/file/d/1ug8aeapoodZ4AYJjaAJIxbLSWKJWwqck/view?usp=sharing) to `dataset/VisualGenome`.
 ```text
 LaMI-DETR/dataset   
 ├── coco/ 

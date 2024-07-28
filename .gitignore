@@ -132,7 +132,6 @@ dmypy.json
 .vscode/
 
 output/
-dataset/
 nohup.out
 .github/
 
@@ -145,5 +144,4 @@ retina+dino_1x/
 *json
 
 lvis-debug/*
-dataset/coco*
 pretrained_models/*
