@@ -1,0 +1,1 @@
+../../../../configs/common/data/coco_detr.py
