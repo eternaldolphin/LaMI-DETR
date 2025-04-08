@@ -6,7 +6,12 @@ This repository is the official implementation of the **ECCV 2024** paper **LaMI
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/lami-detr-open-vocabulary-detection-with/open-vocabulary-object-detection-on-lvis-v1-0)](https://paperswithcode.com/sota/open-vocabulary-object-detection-on-lvis-v1-0?p=lami-detr-open-vocabulary-detection-with)
 
-## Installation
+## 🚀 Method Overview
+LaMI-DETR adapts the DETR model by incorporating a frozen CLIP image encoder as the backbone. 
+LaMI harnesses LLMs to extract inter-category relationships, utilizing this information to sample easy negative categories and avoid overfitting to base categories, while also refining concept representations to enable effective classification between visually similar categories.
+![](examples/model.png)
+
+## 🔍 Installation
 The code is tested under python=3.9 torch=1.10.0 [cuda=11.7](https://drive.google.com/file/d/1A57019pFuRRjaQAVAv_lfeWWBWadfcgE/view?usp=sharing). Please [download](https://drive.google.com/file/d/1nIq4gAHvNYSaC_dnozVtHeTH0Rsw-DHY/view?usp=sharing) and unzip this environment under your conda envs dir.
 ```shell
 cd your_conda_envs_path
@@ -45,7 +50,7 @@ pip install -e .
 ```
 
 
-## Preparation
+## 📂 Preparation
 
 ### Datasets
 Download the [MS-COCO](https://cocodataset.org/#download) dataset to `dataset/coco`.
@@ -96,9 +101,9 @@ Change "model.eval_query_path" in config file
 ### Pretrained Models
 ```text
 LaMI-DETR/pretrained_models   
-├── idow_convnext_large_12ep_lvis/ 
+├── lami_convnext_large_12ep_lvis/ 
 │   └── model_final.pth
-├── idow_convnext_large_12ep_vg/
+├── lami_convnext_large_12ep_vg/
 │   └── model_final.pth
 ├── lami_convnext_large_obj365_12ep.pth
 ├── clip_convnext_large_trans.pth
@@ -107,22 +112,22 @@ LaMI-DETR/pretrained_models
 [clip_convnext_large_head.pth](https://drive.google.com/file/d/1Jr9mfnAyiSGjsh09X0pqspuagsMyzHSS/view?usp=sharing)
 
 
-## Inference  
+## 🎉 Inference  
 In the paper, we reported p2 layer score ensemble results. This repository provides p3 layer results, which are generally higher. We found p2 and p3 layers with ConvNeXt yield similar results, but p3 is much faster. Thus, we recommend using p3.
 
-|  #  |  Training Data  |  Inference Data  |   AP   |   APr   |                                Script                                | Init checkpoint | Checkpoint |
-|:---:|:---------------:|:----------------:|:------:|:-------:|:--------------------------------------------------------------------:|:----------:|:----------:|
-|  1  |    LVIS-base    |        LVIS      |  41.6  |   43.3  |  [script](lami_dino/configs/dino_convnext_large_4scale_12ep_lvis.py)   | [clip_convnext_large_trans.pth](https://drive.google.com/file/d/1jwWmB80oJi2x8YBZTeSX_pgMggsi67GJ/view?usp=sharing)  | [idow_convnext_large_12ep_lvis/model_final.pth](https://drive.google.com/file/d/1DRIYuaW4oV_ghFLRX2VG-cALWsF0fxyk/view?usp=sharing)  |
-|  2  |    VGdedup      |        LVIS      |  35.4  |   38.8  | [script](lami_dino/configs/dino_convnext_large_4scale_12ep_vg.py) | [lami_convnext_large_obj365_12ep.pth](https://drive.google.com/file/d/12OsjOCapOiRsOlTx1YYeJ3PkSiH_zRrK/view?usp=sharing)  | [idow_convnext_large_12ep_vg/model_final.pth](https://drive.google.com/file/d/1p5ROlpMeLml4Nns2sByv80RO8F4QVgUn/view?usp=sharing)  |
-
+|  #  |  Training Data  |   Visual-desc     API|  Inference Data  |   AP   |   APr   |                                Script                                | Init checkpoint | Checkpoint |
+|:---:|:---------------:|:---------:|:----------------:|:------:|:-------:|:--------------------------------------------------------------------:|:----------:|:----------:|
+|  1  |    LVIS-base    |gpt-3.5-turbo|        LVIS      |  41.6  |   43.3  |  [script](lami_dino/configs/dino_convnext_large_4scale_12ep_lvis.py)   | [clip_convnext_large_trans.pth](https://drive.google.com/file/d/1jwWmB80oJi2x8YBZTeSX_pgMggsi67GJ/view?usp=sharing)  | [lami_convnext_large_12ep_lvis/model_final.pth](https://drive.google.com/file/d/1DRIYuaW4oV_ghFLRX2VG-cALWsF0fxyk/view?usp=sharing)  |
+|  2  |    VGdedup      |gpt-3.5-turbo|        LVIS      |  35.4  |   38.8  | [script](lami_dino/configs/dino_convnext_large_4scale_12ep_vg.py) | [lami_convnext_large_obj365_12ep.pth](https://drive.google.com/file/d/12OsjOCapOiRsOlTx1YYeJ3PkSiH_zRrK/view?usp=sharing)  | [lami_convnext_large_12ep_vg/model_final.pth](https://drive.google.com/file/d/1p5ROlpMeLml4Nns2sByv80RO8F4QVgUn/view?usp=sharing)  |
+|  2  |    LVIS-base    |deepseek-v2-chat(MoE-236B)|        LVIS      |  41.2  |   41.5  | [script](lami_dino/configs/dino_convnext_large_4scale_12ep_vg.py) | [lami_convnext_large_obj365_12ep.pth](https://drive.google.com/file/d/12OsjOCapOiRsOlTx1YYeJ3PkSiH_zRrK/view?usp=sharing)  | [lami_convnext_large_12ep_lvis_deepseek/model_final.pth](https://drive.google.com/file/d/15lMSfX8V-iKrigTcFtgE7O7RRQpKuP8v/view?usp=drive_link)  |
 
 OV-LVIS 
 ```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3 python tools/train_net.py --config-file lami_dino/configs/dino_convnext_large_4scale_12ep_lvis.py --num-gpus 4 --eval-only train.init_checkpoint=pretrained_models/idow_convnext_large_12ep_lvis/model_final.pth
+CUDA_VISIBLE_DEVICES=0,1,2,3 python tools/train_net.py --config-file lami_dino/configs/dino_convnext_large_4scale_12ep_lvis.py --num-gpus 4 --eval-only train.init_checkpoint=pretrained_models/lami_convnext_large_12ep_lvis/model_final.pth
 ```
 Zero-shot LVIS 
 ```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3 python tools/train_net.py --config-file lami_dino/configs/dino_convnext_large_4scale_12ep_vg.py --num-gpus 4 --eval-only train.init_checkpoint=pretrained_models/idow_convnext_large_12ep_vg/model_final.pth
+CUDA_VISIBLE_DEVICES=0,1,2,3 python tools/train_net.py --config-file lami_dino/configs/dino_convnext_large_4scale_12ep_vg.py --num-gpus 4 --eval-only train.init_checkpoint=pretrained_models/lami_convnext_large_12ep_vg/model_final.pth
 ```
 For a quick debug you can update numpy to 1.24.0 and install lvis-debug, then comment the 372 line and uncomment the 373 line in detectron2/detectron2/evaluation/lvis_evaluation.py 
 ```
@@ -135,7 +140,7 @@ CUDA_VISIBLE_DEVICES=1 python tools/train_net.py --config-file lami_dino/configs
 ```
 
 
-## Training
+##  🥳 Training
 OV-LVIS 
 ```bash
 python tools/train_net.py --config-file lami_dino/configs/dino_convnext_large_4scale_12ep_lvis.py --num-gpus 8 train.init_checkpoint=pretrained_models/clip_convnext_large_trans.pth
@@ -150,7 +155,7 @@ CUDA_VISIBLE_DEVICES=1 python tools/train_net.py --config-file lami_dino/configs
 ```
 
 
-## TODO List
+## 👩‍💻 TODO List
 - [x] Release inference codes.
 - [x] Release checkpoints.
 - [x] Release training codes.

@@ -20,8 +20,8 @@ train = get_config("common/train.py").train
 
 # modify training config
 # train.init_checkpoint = "clip_convnext_large_trans.pth"
-train.init_checkpoint = "./pretrained_models/idow_convnext_large_12ep_lvis/model_final.pth"
-train.output_dir = "./output/idow_convnext_large_12ep_lvis"
+train.init_checkpoint = "./pretrained_models/lami_convnext_large_12ep_lvis/model_final.pth"
+train.output_dir = "./output/lami_convnext_large_12ep_lvis"
 
 # max training iterations
 train.max_iter = 85200# TODO

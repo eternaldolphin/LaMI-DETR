@@ -18,9 +18,9 @@ train = get_config("common/train.py").train
 
 
 # modify training config
-# train.init_checkpoint = "./pretrained_models/idow_convnext_large_obj365_12ep.pth" # for train
-train.init_checkpoint = "./pretrained_models/idow_convnext_large_12ep_vg/model_final.pth" # for inference
-train.output_dir = "./output/idow_convnext_large_12ep_vg"
+# train.init_checkpoint = "./pretrained_models/lami_convnext_large_obj365_12ep.pth" # for train
+train.init_checkpoint = "./pretrained_models/lami_convnext_large_12ep_vg/model_final.pth" # for inference
+train.output_dir = "./output/lami_convnext_large_12ep_vg"
 
 # max training iterations
 train.max_iter = 72000
