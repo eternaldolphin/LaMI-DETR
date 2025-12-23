@@ -1,0 +1,6 @@
+opencv-python
+scikit-image
+pillow==9.5.0
+open_clip_torch
+numpy==1.26.4
+timm==1.0.10

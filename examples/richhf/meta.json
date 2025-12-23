@@ -1,0 +1,35 @@
+{
+    "1": {
+      "misalignment_score": 0.0,
+      "aesthetics_score": 0.5,
+      "filename": "1.jpg",
+      "overall_score": 0.1666666716337204,
+      "prompt_misalignment_label": "0 0",
+      "artifact_score": 0.5,
+      "prompt": "Fru fru",
+      "labeled_prompt": "Fru_0 fru_0",
+      "clean_prompt": "Fru fru"
+    },
+    "2": {
+      "misalignment_score": 0.5,
+      "aesthetics_score": 0.75,
+      "filename": "2.jpg",
+      "overall_score": 0.6666666865348816,
+      "prompt_misalignment_label": "0 1 0",
+      "artifact_score": 1.0,
+      "prompt": "capybara coloring page",
+      "labeled_prompt": "capybara_0 coloring page_0",
+      "clean_prompt": "capybara coloring page"
+    },
+    "3": {
+      "overall_score": 0.75,
+      "aesthetics_score": 0.75,
+      "misalignment_score": 1.0,
+      "filename": "3.jpg",
+      "prompt_misalignment_label": "1 1 1 1 1",
+      "artifact_score": 0.5,
+      "prompt": "cyberpunk mutant cute blond girl",
+      "labeled_prompt": "cyberpunk mutant cute blond girl",
+      "clean_prompt": "cyberpunk mutant cute blond girl"
+    }
+}

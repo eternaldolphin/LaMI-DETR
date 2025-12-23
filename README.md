@@ -139,6 +139,32 @@ cd ../
 CUDA_VISIBLE_DEVICES=1 python tools/train_net.py --config-file lami_dino/configs/dino_convnext_large_4scale_12ep_lvis.py --num-gpus 1 --ddebug --eval-only
 ```
 
+### Inference for Single Image
+```bash
+cd LaMI-DETR/lami_detr
+python lamidetr_sam2_inference.py \
+    --image ../examples/richhf/images/1.jpg\
+    --visual_desc ../examples/richhf/visual_descs/1.json \
+    --output ../examples/richhf/results/1_result.png
+```
+### Inference for Batch Images
+```bash
+cd LaMI-DETR/lami_detr
+python lamidetr_sam2_batch.py
+```
+
+### Generate Visual Descriptions
+Here is an example for [richhf dataset](https://github.com/youweiliang/RichHF/tree/main).
+
+We use the doubao-seed API, you need to add your API key.
+
+The meta.json from ./examples/richhf is copied from part of the richhf dataset.
+
+How to run:
+```bash
+cd LaMI-DETR
+python extract_richhf10_visual_des_doubao.py
+```
 
 ##  🥳 Training
 OV-LVIS 

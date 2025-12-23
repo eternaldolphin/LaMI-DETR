@@ -1,0 +1,39 @@
+{
+  "bush": [
+    "dense green foliage",
+    "rounded form",
+    "short uniform texture",
+    "manicured appearance"
+  ],
+  "bush text": [
+    "pink lettering",
+    "sequence 'AI RIR FA FI-UUI'",
+    "bold rounded font",
+    "applied on foliage"
+  ],
+  "flower": [
+    "daisy-like flower",
+    "purple petals",
+    "yellow center",
+    "small size"
+  ],
+  "checkered cloth": [
+    "textile cloth",
+    "pink and white checkered pattern",
+    "flat spread shape",
+    "cotton-like texture"
+  ],
+  "sofa": [
+    "upholstered sofa",
+    "white color",
+    "colorful pillows",
+    "background placement"
+  ],
+  "red sign": [
+    "round sign",
+    "red color",
+    "partial text 'f'uu'",
+    "small size",
+    "placed on cloth"
+  ]
+}
